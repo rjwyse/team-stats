@@ -1,4 +1,4 @@
-const stat = require('../models/stat');
+const Stat = require('../models/stat');
 const Player = require('../models/player');
 
 module.exports = {
@@ -9,15 +9,15 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const stats = await stat.find({});
+  const stats = await Stat.find({});
   res.render('stats/index', { title: 'All Stats', stats });
 }
 
 async function show(req, res) {
   
-  const stat = await stat.findById(req.params.id).populate('list');
-  const players = await player.find({ _id: { $nin: stat.list } }).sort('name');
-  res.render('stats/show', { title: 'stat Detail', stat, players });
+  const stat = await Stat.findById(req.params.id).populate('list');
+  const players = await Player.find({ _id: { $nin: stat.list } }).sort('name');
+  res.render('stats/show', { title: 'Stat Detail', stat, players });
 }
 
 function newstat(req, res) {
@@ -30,7 +30,7 @@ async function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
   try {
-    const stat = await stat.create(req.body);
+    const stat = await Stat.create(req.body);
     res.redirect(`/stats/${stat._id}`);
   } catch (err) {
     console.log(err);
