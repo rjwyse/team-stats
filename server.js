@@ -1,16 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-var passport = require('passport');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const statsRouter = require('./routes/stats');
+const playersRouter = require('./routes/players');
+const commentsRouter = require('./routes/comments')
 
 require('dotenv').config();
-var app = express();
+const app = express();
 require('./config/database');
 require('./config/passport');
 
@@ -37,8 +39,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', indexRouter); 
+app.use('/stats', statsRouter); 
+app.use('/players', playersRouter); 
+app.use('/comments', commentsRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

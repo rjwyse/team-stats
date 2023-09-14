@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a New stat</h2>
+<form action="/stats" method="POST">
+  <label>Player:
+    <input type="text" name="player">
+  </label><br>
+  <label>Goals:
+    <input type="number" name="Goals">
+  </label><br>
+  <label>Assist
+    <input type="number" name="Assist">
+    </select>
+  </label><br>
+<button type="submit">Add stat</button>
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>
