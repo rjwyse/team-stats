@@ -25,7 +25,7 @@ function newstat(req, res) {
 }
 
 async function create(req, res) {
-  req.body.nowShowing = !!req.body.nowShowing;
+  
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }

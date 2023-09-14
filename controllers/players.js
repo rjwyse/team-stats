@@ -1,4 +1,4 @@
-const player = require('../models/player');
+const Player = require('../models/player');
 const stat = require('../models/stat');
 
 module.exports = {
@@ -24,7 +24,7 @@ async function newplayer(req, res) {
 async function create(req, res) {
   req.body.born += 'T00:00';
   try {
-    await player.create(req.body);
+    await Player.create(req.body);
   } catch (err) {
     console.log(err);
   }
