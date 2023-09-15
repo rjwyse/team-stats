@@ -10,7 +10,7 @@
   <div>Position: </div>
   <div><%= player.position %></div>
 
-  <form id="new-form" action="/player" method="DELETE">
+  <form id="new-form" action="/players/<%= player._id %>?_method=DELETE" method="POST">
   <input type="submit" value="Delete Player">
   </form>
   <form id="new-form" action="/player" method="HIGHLIGHT">

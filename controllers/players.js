@@ -9,12 +9,28 @@ module.exports = {
   delete: deleteplayer
 };
 
-async function deleteplayer(req, res) {
-  const player = await player.findOne({ 'players._id': req.params.id, 'players.user': req.user._id });
-  if (!player) return res.redirect('/players');
-  player.players.remove(req.params.id);
-  await player.save();
-  res.redirect(`/players/${player._id}`);
+// async function deleteplayer(req, res) {
+//   const player = await Player.findOne({ 'player._id': req.params.id, 'player.user': req.user._id });
+//   try{
+//   //if (!player) return res.redirect('/players');
+//   await player.deleteOne(req.params.id);
+//   console.log("hello")
+//   await player.save();
+//   res.redirect(`/players/${player._id}`);
+// } catch (err){
+//   console.log(err);
+//   res.render("index", {title: "Players"});
+// }
+// }
+async function deleteplayer (req,res){
+  const player = await Player.findById(req.params.id);
+  try {
+      await player.deleteOne(req.body);
+      res.redirect("./"); 
+  } catch (err){
+      console.log(err);
+      res.render("index", {title: "Player"});
+  }
 }
 
 async function show(req, res){
