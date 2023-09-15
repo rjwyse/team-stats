@@ -1,16 +1,24 @@
-Overview
-Team Stats is a sports app where a user may create a team roster. Add Position, Goals, and Asisst. Also yo can add a comment for each player as well as edit thier stats
+-Overview
+    
+    -Team Stats is a sports app where a user may create a team roster. Add Position, Goals, and Asisst. Also yo can add a comment for each player as well as edit thier stats
 
 
-Features
-User authentication
-CRUD - user may create, read, update, and delete players
-Only authenticated users may use app features
+-Features
 
-Technologies
-JavaScript
-EJS
-CSS
+    -User authentication
+    -CRUD - user may create, read, update, and delete players
+    -Only authenticated users may use app features
+
+-Technologies
+
+    -JavaScript
+    -EJS
+    -CSS
 
 https://trello.com/b/DQMH7xK9/project-2
+
+-Next Steps
+
+    - I would like to change the CSS and Styliing to make it look nice and neat
+    - Adding an Image for each player
 
