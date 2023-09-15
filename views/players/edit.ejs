@@ -2,25 +2,25 @@
 
 
 
-<form id="add-player-form" action="/players" method="POST">
+<form id="add-player-form" action="/players/<%= player._id%>?_method=PUT" method="POST">
   <div class="input-container">
     <label>Name:</label>
-    <input type="text" name="name">
+    <input type="text" name="name" value="<%= `${player.name}`%>">
   </div>
 
   <div class="input-container">
     <label>Position:</label>
-    <input type="text" name="position">
+    <input type="text" name="position" value="<%= `${player.position}`%>">
   </div>
 
   <div class="input-container">
     <label>Goals:</label>
-    <input type="text" name="goals">
+    <input type="text" name="goals" value="<%= `${player.goals}`%>">
   </div>
 
   <div class="input-container">
     <label>Assist:</label>
-    <input type="text" name="assist">
+    <input type="text" name="assist" value="<%= `${player.assist}`%>">
   </div>
 
   <div class="centered-container">

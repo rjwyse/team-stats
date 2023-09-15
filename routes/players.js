@@ -8,6 +8,8 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 router.get('/new', ensureLoggedIn, playersCtrl.new);
 router.get('/showAll', ensureLoggedIn, playersCtrl.showAll);
 router.post('/', ensureLoggedIn, playersCtrl.create);
+router.get('/:id/edit', ensureLoggedIn, playersCtrl.edit);
+router.put("/:id", ensureLoggedIn, playersCtrl.update)
 
 
 router.get('/:id',playersCtrl.show)

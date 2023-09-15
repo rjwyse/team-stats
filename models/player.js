@@ -1,6 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  content: {
+    type: String,
+    required: true
+  },
+  
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
+}, {
+  timestamps: true
+});
+
 const playerSchema = new Schema({
   name: {
     type: String,
@@ -19,6 +36,8 @@ const playerSchema = new Schema({
       type: Number,
       require:true
     },
+    comments: [commentSchema]
+
   }, {
   timestamps: true
 });

@@ -4,7 +4,7 @@ const commentsCtrl = require('../controllers/comments');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // POST /movies/:id/comments (create review for a movie)
-router.post('/movies/:id/comments', ensureLoggedIn, commentsCtrl.create);
+router.post('/players/:id/comments', ensureLoggedIn, commentsCtrl.create);
 // DELETE /comments
 router.delete('/comments/:id', ensureLoggedIn, commentsCtrl.delete);
 

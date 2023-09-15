@@ -1,4 +1,4 @@
-
+const Player = require('../models/player');
 
 module.exports = {
   create,
@@ -7,15 +7,15 @@ module.exports = {
 };
 
 async function deleteComment(req, res) {
-  const stat = await stat.findOne({ 'comments._id': req.params.id, 'comments.user': req.user._id });
-  if (!stat) return res.redirect('/stats');
-  stat.comments.remove(req.params.id);
-  await stat.save();
-  res.redirect(`/stats/${stat._id}`);
+  const player = await Player.findOne({ 'comments._id': req.params.id, 'comments.user': req.user._id });
+  if (!player) return res.redirect('/players');
+  player.comments.remove(req.params.id);
+  await player.save();
+  res.redirect(`/players/${player._id}`);
 }
 
 async function create(req, res) {
-  const stat = await stat.findById(req.params.id);
+  const player = await Player.findById(req.params.id);
 
   // Add the user-centric info to req.body (the new comment)
   req.body.user = req.user._id;
@@ -23,12 +23,12 @@ async function create(req, res) {
   req.body.userAvatar = req.user.avatar;
 
   // We can push (or unshift) subdocs into Mongoose arrays
-  stat.comments.push(req.body);
+  player.comments.push(req.body);
   try {
-    // Save any changes made to the stat doc
-    await stat.save();
+    // Save any changes made to the player doc
+    await player.save();
   } catch (err) {
     console.log(err);
   }
-  res.redirect(`/stats/${stat._id}`);
+  res.redirect(`/players/${player._id}`);
 }

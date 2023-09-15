@@ -6,7 +6,9 @@ module.exports = {
   create,
   show,
   showAll,
-  delete: deleteplayer
+  delete: deleteplayer,
+  edit,
+  update
 };
 
 // async function deleteplayer(req, res) {
@@ -26,7 +28,18 @@ async function deleteplayer (req,res){
   const player = await Player.findById(req.params.id);
   try {
       await player.deleteOne(req.body);
-      res.redirect("./"); 
+      res.redirect("/players/showAll"); 
+  } catch (err){
+      console.log(err);
+      res.render("index", {title: "Player"});
+  }
+}
+
+async function update (req,res){
+  const player = await Player.findById(req.params.id);
+  try {
+      await player.updateOne(req.body);
+      res.redirect(`${player._id}`); 
   } catch (err){
       console.log(err);
       res.render("index", {title: "Player"});
@@ -69,4 +82,9 @@ async function create(req, res) {
 async function showAll(req, res) {
   const players = await Player.find({})
   res.render('players', {title: 'All Players', players})
+}
+
+async function edit(req, res) {
+  const player = await Player.findById(req.params.id)
+  res.render('players/edit', {title: `Edit ${player.name}`, player})
 }

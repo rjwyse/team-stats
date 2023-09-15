@@ -10,16 +10,60 @@
   <div>Position: </div>
   <div><%= player.position %></div>
 
+  <form id="new-form" action="/players/<%= player._id %>/edit" method="GET">
+    <input type="submit" value="Edit Player">
+    </form>
+
   <form id="new-form" action="/players/<%= player._id %>?_method=DELETE" method="POST">
   <input type="submit" value="Delete Player">
   </form>
-  <form id="new-form" action="/player" method="HIGHLIGHT">
-    <input type="submit" value="Highlight">
-    </form>
+
+    <br><br><h2>Comments</h2>
+<form id="add-comment-form" method="POST"
+  action="/players/<%= player._id %>/comments">
+  <label>comment:</label>
+  <textarea name="content"></textarea>
+  <input type="submit" value="Add comment">
+</form>
  
 
 
 </section>
+
+<% if (player.comments.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>comment</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %>
+      <% player.comments.forEach(function(p) { %>
+        <tr>
+          <td class="comment-user"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %></td>
+          <td><%= p.createdAt.toLocaleDateString() %></td>
+          <td><%= p.content %></td>
+          <td>
+            <% if (user?._id.equals(p.user)) { %>
+              <form action="/comments/<%= p._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No comments Yet</h5>
+<% } %>
 
 
 
