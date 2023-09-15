@@ -7,7 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 const indexRouter = require('./routes/index');
-const statsRouter = require('./routes/stats');
+
 const playersRouter = require('./routes/players');
 const commentsRouter = require('./routes/comments')
 
@@ -40,7 +40,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter); 
-app.use('/stats', statsRouter); 
+ 
 app.use('/players', playersRouter); 
 app.use('/comments', commentsRouter); 
 

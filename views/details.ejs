@@ -1,0 +1,11 @@
+<h1>Player Details</h1>
+<p>Name: <%= player.name %></p>
+<!-- Display other player details here -->
+
+<h2>Add Stats</h2>
+<form action="/players/<%= player._id %>/addStats" method="POST">
+  <!-- Add form fields for the new stats -->
+  <input type="text" name="statName" placeholder="Stat Name" required>
+  <input type="number" name="statValue" placeholder="Stat Value" required>
+  <button type="submit">Add Stats</button>
+</form>

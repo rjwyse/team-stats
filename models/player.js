@@ -7,8 +7,19 @@ const playerSchema = new Schema({
     required: true,
     unique: true
   },
-  born: Date
-}, {
+    position: {
+      type: String,
+      require:true
+    },
+    goals: {
+      type: Number,
+    require:true
+    },
+    assist: {
+      type: Number,
+      require:true
+    },
+  }, {
   timestamps: true
 });
 

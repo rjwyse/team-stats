@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Player: </div>
+  <div><%= player.name %></div>
+  <div>Goals: </div>
+  <div><%= player.goals %></div>
+  <div>Assist: </div>
+  <div><%= player.assist %></div>
+  <div>Position: </div>
+  <div><%= player.position %></div>
+
+  <form id="new-form" action="/player" method="DELETE">
+  <input type="submit" value="Delete Player">
+  </form>
+  <form id="new-form" action="/player" method="HIGHLIGHT">
+    <input type="submit" value="Highlight">
+    </form>
+ 
+
+
+</section>
+
+
+
+<%- include('../partials/footer') %>

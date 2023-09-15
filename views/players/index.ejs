@@ -7,10 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <% stats.forEach(function(s) { %>
+    <% players.forEach(function(p) { %>
       <tr>
-        <td><%= s.player %></td>
-        <td><a href="/stats/<%= s._id %>">DETAILS</a></td>
+        <td><%= p.name %></td>
+        <td><a href="/players/<%= p._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
     </tbody>

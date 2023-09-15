@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav>
-    <a href="/Team Stats" <%- title === 'All PLayers' ? 'class="active"' : '' %>>ALL PLAYERS</a>
+    <a href="/players/showAll" <%- title === 'All PLayers' ? 'class="active"' : '' %>>ALL PLAYERS</a>
     <% if (user) { %>
       <a href="/players/new"	<%- title === 'Add Player' ? 'class="active"' : '' %>>
           ADD PLAYER</a>

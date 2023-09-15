@@ -6,11 +6,42 @@
     <article class="badge"><%= p.name %></article>
   <% }) %>
 </section>
-
 <form id="add-player-form" action="/players" method="POST">
-  <label>Name:</label>
-  <input type="text" name="name">
-  <input type="submit" value="Add Player">
+  <div class="input-container">
+    <label>Name:</label>
+    <input type="text" name="name">
+  </div>
+
+  <div class="input-container">
+    <label>Position:</label>
+    <input type="text" name="position">
+  </div>
+
+  <div class="input-container">
+    <label>Goals:</label>
+    <input type="text" name="goals">
+  </div>
+
+  <div class="input-container">
+    <label>Assist:</label>
+    <input type="text" name="assist">
+  </div>
+
+  <div class="centered-container">
+    <input type="submit" value="Add Player">
+  </div>
+</form>
+
+
+
+
+    <% players.forEach(function(player) { %>
+      <li>
+        <a href="/players/<%= player._id %>"><%= player.name %></a>
+      </li>
+    <% }); %>
+  </ul>
+  
 </form>
 
 <%- include('../partials/footer') %>

@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h2>Enter a New stat</h2>
+<!-- <%<h2>Enter a New stat</h2>
 <form action="/stats" method="POST">
   <label>Player:
     <input type="text" name="player">
@@ -14,6 +14,14 @@
   </label><br>
 <button type="submit">Add stat</button>
 </form>
-<p><%= errorMsg %></p>
+<p><%= errorMsg %></p>  -->
 
-<%- include('../partials/footer') %>
+<form action="/players/<%= playerId %>/addStats" method="POST">
+  <!-- Add form fields for the new stats -->
+  <input type="text" name="statName" placeholder="Stat Name" required>
+  <input type="number" name="statValue" placeholder="Stat Value" required>
+  <button type="submit">Add Stats</button>
+</form>
+
+
+<%- include('../partials/footer') %> 
