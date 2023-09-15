@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Team Stats' });
+  res.render('index', { title: 'Team player/showAll' });
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -20,15 +20,16 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/stats',
-    failureRedirect: '/stats'
+    successRedirect: '/players/showAll',
+    failureRedirect: '/players/showAll'
   }
 ));
 
 router.get('/logout', function(req, res){
-  req.logout(); // Corrected, no callback needed
-  res.redirect('/stats');
-});
+  req.logout(function() {
+    res.redirect('/players/showAll');
+  });
+});;
 
 
 
