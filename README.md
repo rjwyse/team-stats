@@ -25,6 +25,8 @@
     -EJS
     -CSS
 
+Live Link: https://team-stats.onrender.com
+
 https://trello.com/b/DQMH7xK9/project-2
 
 -Next Steps
