@@ -3,6 +3,14 @@
     -Team Stats is a sports app where a user may create a team roster. Add Position, Goals, and Asisst. Also yo can add a comment for each player as well as edit thier stats
 
 
+![Alt text](<Screenshot 2023-09-15 at 3.55.00 PM-1.png>)
+
+![Alt text](<Screenshot 2023-09-15 at 3.55.11 PM-1.png>)
+
+![Alt text](<Screenshot 2023-09-15 at 3.55.53 PM-1.png>)
+
+![Alt text](<Screenshot 2023-09-15 at 3.56.03 PM-1.png>)
+
 
 
 -Features
